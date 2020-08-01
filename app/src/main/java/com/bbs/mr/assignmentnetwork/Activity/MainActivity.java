@@ -4,7 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.transition.Fade;
 import android.transition.Scene;
+import android.transition.Slide;
+import android.transition.Transition;
+import android.transition.TransitionManager;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
@@ -17,12 +21,14 @@ public class MainActivity extends AppCompatActivity {
     Scene boss,manager,employee,acc,product,info;
     ViewGroup sceneRoot,sceneSubBoss;
     TabLayout tab_boss;
+    Transition transition;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        transition = new Fade();
         sceneRoot = findViewById(R.id.scene_root_main);
         boss = Scene.getSceneForLayout(sceneRoot,R.layout.manager_acc_sence,this);
         manager = Scene.getSceneForLayout(sceneRoot,R.layout.manager_product_sence,this);
@@ -43,11 +49,11 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onTabSelected(TabLayout.Tab tab) {
                         if (tab.getText().toString().contains("Sản phẩm")){
-                            product.enter();
+                            TransitionManager.go(product,transition);
                         } else if (tab.getText().toString().contains("Nhân viên")){
-                            acc.enter();
+                            TransitionManager.go(acc,transition);
                         } else {
-                            info.enter();
+                            TransitionManager.go(info,transition);
                         }
                     }
 
