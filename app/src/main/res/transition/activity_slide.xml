@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+Cừu đen
+0331999bbs@gmail.com
+0347079556
+fb.com/mr.bbs.noname
+-->
+
+<transitionSet xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <slide
+        android:duration="@android:integer/config_mediumAnimTime"
+        android:interpolator="@android:interpolator/accelerate_cubic"
+        android:slideEdge="left"
+        android:startDelay="@android:integer/config_shortAnimTime"/>
+    <changeBounds
+        android:duration="15000"
+        android:interpolator="@android:anim/bounce_interpolator" />
+    <arcMotion />
+
+</transitionSet>
